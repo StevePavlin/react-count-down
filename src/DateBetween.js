@@ -1,4 +1,4 @@
-let DateBetween = function(startDate, endDate) {
+let DateBetween = function(startDate, endDate, options) {
   let second = 1000;
   let minute = second * 60;
   let hour = minute * 60;
@@ -14,12 +14,31 @@ let DateBetween = function(startDate, endDate) {
   let minutes = Math.floor((distance % hour) / minute);
   let seconds = Math.floor((distance % minute) / second);
 
+  hours = hours < 10 ? `0${hours}` : hours;
+  minutes = minutes < 10 ? `0${minutes}` : minutes;
+  seconds = seconds < 10 ? `0${seconds}` : seconds;
+
+  let between = "";
+  if (options.days) {
+    between += days;
+    between += ':';
+  }
+
+  if (options.hours) {
+    between += hours;
+    between += ':';
+  }
+
+  if (options.minutes) {
+    between += minutes;
+    between += ':';
+  }
+
+  if (options.seconds) {
+    between += seconds;
+  }
 
 
-  let between = days;
-  between += hours;
-  between += minutes;
-  between += seconds;
 
   return between;
 };

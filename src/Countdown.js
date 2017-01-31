@@ -24,7 +24,7 @@ export default class Countdown extends Component {
   tick() {
     let startDate = new Date()
     let endDate = new Date(this.props.options.endDate)
-    let remaining = DateBetween(startDate, endDate)
+    let remaining = DateBetween(startDate, endDate, this.props.options);
     this.setState({remaining: remaining })
   }
 
@@ -32,7 +32,6 @@ export default class Countdown extends Component {
     return (
       <div className="react-count-down">
        <span className="date"> {this.state.remaining}</span>
-       <span className="prefix"> {this.props.options.prefix}</span>
       </div>
     )
   };

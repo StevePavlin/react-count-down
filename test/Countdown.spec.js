@@ -7,7 +7,7 @@ import Countdown from '../src/Countdown'
 
 test('Countdown component', (t) => {
   setupJsdom()
-  let OPTIONS = { endDate: '06/03/2018 10:12 AM', prefix: 'until my birthday!' }
+  let OPTIONS = { endDate: '06/03/2018 10:12 AM', prefix: 'until my birthday!', hours: true, minutes: true, seconds: true }
 
   const wrapper = mount( <Countdown options={OPTIONS} /> )
   console.log(wrapper.props())
