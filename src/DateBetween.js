@@ -6,7 +6,7 @@ let DateBetween = function(startDate, endDate, options) {
   let distance = endDate - startDate;
 
   if (distance < 0) {
-    return "count down date expired";
+    return options.expiredText;
   }
 
   let days = Math.floor(distance / day);

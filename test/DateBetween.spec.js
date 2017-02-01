@@ -27,3 +27,17 @@ test('difference between 2 dates is equal to 1 hour 27 minutes', function (t) {
     t.equal(difference1, "01:27:00");
     t.end();
 });
+
+var date5 = new Date("Fri Feb 06 2015 18:07:30");
+var date6 = new Date("Fri Feb 04 2015 19:34:30");
+var difference2 = DateBetween(date5,date6, {
+    hours: true,
+    minutes: true,
+    seconds: true,
+    expiredText: 'Timer expired'
+});
+
+test('timer displays expired when difference is less than 0', function (t) {
+    t.equal(difference2, "Timer expired");
+    t.end();
+});
